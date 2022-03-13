@@ -21,20 +21,47 @@
 //players have an option to input the whole word
 
 
-let enterBtn = document.querySelector("#form button")
+let enterBtn = document.querySelector("#form", ".enterBtn")
 let inputText = document.querySelector(".inputText")
 let wordPick = ""
-// console.log(enterBtn)
+let log = document.querySelector("#log")
 
+// listener for form submission 
 enterBtn.addEventListener("submit", (e) => {
-  e.preventDefault(e)
-  
-  
-})
-
-inputText.addEventListener("change", function (e) {
   e.preventDefault()
-  wordPick = e.target.value
-  alert(wordPick)
+  
+  
 })
+// function to hold the value of the word player 1 picks in a variable
+// inputText.addEventListener("change", (e) => {
+//   e.preventDefault()
+//     wordPick = e.target.value
+//       console.log(wordPick)
+// })
 
+inputText.addEventListener("change", theWord)
+
+function theWord(e) {
+  log.textContent = e.target.value.hidden
+
+  console.log(e.target.value)
+}
+
+// guessingBtn.addEventListener("submit", (e) => {
+//   e.preventDefault(e)
+
+// })
+
+// guessingInput.addEventListener("change", (e) => {
+//   e.preventDefault()
+//     guessPick = e.target.value
+// })
+// console.log(guessPick)
+
+
+
+// if (guessPick !== wordPick) {
+//   console.log("Your on the right track")
+// } else {
+//   console.log( "YESS")
+// } 
