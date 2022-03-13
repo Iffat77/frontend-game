@@ -21,3 +21,20 @@
 //players have an option to input the whole word
 
 
+let enterBtn = document.querySelector("#form button")
+let inputText = document.querySelector(".inputText")
+let wordPick = ""
+// console.log(enterBtn)
+
+enterBtn.addEventListener("submit", (e) => {
+  e.preventDefault(e)
+  
+  
+})
+
+inputText.addEventListener("change", function (e) {
+  e.preventDefault()
+  wordPick = e.target.value
+  alert(wordPick)
+})
+
