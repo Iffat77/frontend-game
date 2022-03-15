@@ -21,47 +21,26 @@
 //players have an option to input the whole word
 
 
-let enterBtn = document.querySelector("#form", ".enterBtn")
+let formBtn = document.querySelector("#form")
 let inputText = document.querySelector(".inputText")
-let wordPick = ""
-let log = document.querySelector("#log")
+let wordArray = []
+let wordTxt = document.querySelector("#wordTxt")
 
 // listener for form submission 
-enterBtn.addEventListener("submit", (e) => {
+formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  let { word } = data
+  wordArray = word.toLowerCase().split("")
+  console.log(wordArray)
+
   
-  
+  formBtn.reset()
 })
-// function to hold the value of the word player 1 picks in a variable
-// inputText.addEventListener("change", (e) => {
-//   e.preventDefault()
-//     wordPick = e.target.value
-//       console.log(wordPick)
-// })
 
-inputText.addEventListener("change", theWord)
-
-function theWord(e) {
-  log.textContent = e.target.value.hidden
-
-  console.log(e.target.value)
-}
-
-// guessingBtn.addEventListener("submit", (e) => {
-//   e.preventDefault(e)
-
-// })
-
-// guessingInput.addEventListener("change", (e) => {
-//   e.preventDefault()
-//     guessPick = e.target.value
-// })
-// console.log(guessPick)
+// .filer
+// find index of each 
 
 
 
-// if (guessPick !== wordPick) {
-//   console.log("Your on the right track")
-// } else {
-//   console.log( "YESS")
-// } 
+
