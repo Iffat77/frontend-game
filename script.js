@@ -41,6 +41,17 @@ formBtn.addEventListener("submit", (e) => {
 // .filer
 // find index of each 
 
-
-
+// create blank space with underline to hold wordArray
+// nested arrays to hold keyboard choices 
+// event listener & query all on keyboard to listen for letter choice 
+// - conditional 
+// if selected letter exists in wordaArray then display visible 
+// selected letters are no longer clickable on keyboard 
+// -- clicked keys can be stored in a new variable 
+// else if add a strike to player score 
+// create while looop stating 
+// after each input - while player score is less than 6 
+// continue 
+//else player looses 
+//
 
