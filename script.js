@@ -1,3 +1,5 @@
+
+
 let formBtn = document.querySelector("#form")
 let inputText = document.querySelector(".inputText")
 let wordArray = []
@@ -11,39 +13,32 @@ let emptyWrd = document.querySelector(".emptyWrd")
 formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target).entries());
-      let { word } = data
-         console.log(word)
-          wordArray = word.toLowerCase().split("")
-           formBtn.reset()
-             creatingBlank()
+    let { word } = data
+    console.log(word)
+    wordArray = word.toLowerCase().split("")
+    formBtn.reset()
+    creatingBlank()
 })
+
  // created a function for refrencing the length of the input word 
  // and adding dashes corresponding to that length.
- 
-
-function creatingBlank() {                   
-    
-    console.log(wordArray.length)
-      for (let i = 0; i < wordArray.length; i++) {
-        wordOfTheGame += "-" 
-      }
-  
+function creatingBlank() {                     
+  console.log(wordArray.length)
+  for (let i = 0; i < wordArray.length; i++) {
+  wordOfTheGame += "-" 
+  }
   //emptywrd refrencing class in header and assigning it the value from function 
   // this was done to represent the amount of characters in the word thats selected
- 
-  
   emptyWrd.innerHTML = wordOfTheGame
-   newWord = wordOfTheGame.split("")
-    // console.log(newWord)
-       console.log(wordOfTheGame.length)
+  newWord = wordOfTheGame.split("")
+  // console.log(newWord)
+  console.log(wordOfTheGame.length)
 }
 
 //listening for click event on letters 
-
 letters.forEach(letter => letter.addEventListener("click", (e) => {
-   e.preventDefault() 
+  e.preventDefault() 
   if (wordArray.includes(letter.innerHTML)) {
-   
     function find(letter, wordArray) {
       results = [];
       let index = wordArray.indexOf(letter.innerHTML);
@@ -55,23 +50,22 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     }
     find(letter, wordArray)
     console.log(letter.innerHTML)
-  
     // iterating through results to know where to go
     // replacing at those indexes with the corresponding letter 
     results.forEach(index => newWord.splice(index, 1, letter.innerHTML))
     console.log(newWord)
-    
-
     // using join to concatenate the items in newWrd array into emptyWrd
     emptyWrd.innerHTML = newWord.join("")
-   
-
+    //removing selected letter
+    letter.remove()
   } else if (!wordArray.includes(letter.innerHTML)) {
   console.log("go get a job!")
   }
-  
   // console.log(wordArray.includes(letter.innerHTML ))
 }))
+
+
+
 
 // find all the indices where the letters exsist
 // store an array in new variable to hold wordOfTheGame 
