@@ -105,7 +105,6 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
 // .filer543
 // find index of each 
 
-
 // create blank space with underline to hold wordArray
 // nested arrays to hold keyboard choices 
 // event listener & query all on keyboard to listen for letter choice 
