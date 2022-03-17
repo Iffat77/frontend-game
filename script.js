@@ -1,57 +1,94 @@
-//Have a player enter a word that will be guessed during the game.
-// The word is then hidden and represented by blank spaces.
-//The second player then chooses letters,
-// which are revealed if present.
-
-
-
-//start
-//<------->
-// create input for player one and hide it
-// display alphabet on screen or create letter bank
-//begin game logic
-//<-------->
-//player2 guesses letters for word
-//if the letters match the input letter is revealed
-//if letters do not match add a point
-//while this happens if player2 score reaches 6 they loose 
-//if all letters of input word are revealed before player2 reaches 6 they win.
-
-
-//players have an option to input the whole word
-
-
 let formBtn = document.querySelector("#form")
 let inputText = document.querySelector(".inputText")
 let wordArray = []
 let wordTxt = document.querySelector("#wordTxt")
 let letters = document.querySelectorAll(".letter")
-
+let wordOfTheGame = "" 
+let newWord = []
+let emptyWrd = document.querySelector(".emptyWrd") 
 // listener for submit event
-// taking word from input and returning it as an array of srtings stored in the variable wordArray 
+// taking the word from input and returning it as an array of srtings stored in the variable wordArray 
 formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  let { word } = data
-  console.log(word)
-  wordArray = word.toLowerCase().split("")
-  formBtn.reset()
-
+    const data = Object.fromEntries(new FormData(e.target).entries());
+      let { word } = data
+         console.log(word)
+          wordArray = word.toLowerCase().split("")
+           formBtn.reset()
+             creatingBlank()
 })
+ // created a function for refrencing the length of the input word 
+ // and adding dashes corresponding to that length.
+ 
+
+function creatingBlank() {                   
+    
+    console.log(wordArray.length)
+      for (let i = 0; i < wordArray.length; i++) {
+        wordOfTheGame += "-" 
+      }
+  
+  //emptywrd refrencing class in header and assigning it the value from function 
+  // this was done to represent the amount of characters in the word thats selected
+ 
+  
+  emptyWrd.innerHTML = wordOfTheGame
+   newWord = wordOfTheGame.split("")
+    // console.log(newWord)
+       console.log(wordOfTheGame.length)
+}
 
 //listening for click event on letters 
-// 
 
 letters.forEach(letter => letter.addEventListener("click", (e) => {
    e.preventDefault() 
-  if (wordArray.includes(letter.innerHTML) === true) {
-    console.log("good guess")
-  } else if (wordArray.includes(letter.innerHTML) === false) {
- console.log("get a job!")
+  if (wordArray.includes(letter.innerHTML)) {
+   
+    function find(letter, wordArray) {
+      results = [];
+      let index = wordArray.indexOf(letter.innerHTML);
+      while (index != -1) {
+          results.push(index);
+          index = wordArray.indexOf(letter.innerHTML, index + 1);
+        }
+      return results;
+    }
+    find(letter, wordArray)
+    console.log(letter.innerHTML)
+  
+    // iterating through results to know where to go
+    // replacing at those indexes with the corresponding letter 
+    results.forEach(index => newWord.splice(index, 1, letter.innerHTML))
+    console.log(newWord)
+    
+
+    // using join to concatenate the items in newWrd array into emptyWrd
+    emptyWrd.innerHTML = newWord.join("")
+   
+
+  } else if (!wordArray.includes(letter.innerHTML)) {
+  console.log("go get a job!")
   }
   
   // console.log(wordArray.includes(letter.innerHTML ))
 }))
+
+// find all the indices where the letters exsist
+// store an array in new variable to hold wordOfTheGame 
+// use splice to substitute what you need 
+// then join to array wordOfTheGame
+// update letters that do match in the UI
+
+
+
+
+// if the letter matches replace the "-" in wordoOfTheGame with letter.innerHTML and remove that letter from LETTERS
+
+
+// else increment score by 1 and removive that letter from LETTERS
+
+
+
 
 
 
@@ -69,7 +106,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
 
 
 
-
+// document.getElementById("hidden").style.display = "none";
 
 // .filer543
 // find index of each 

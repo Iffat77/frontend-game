@@ -9,9 +9,10 @@
 
 .letter {
   display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #000;
-  text-transform: Lowercase;
+  padding: 3px 5px;
+  border: 2px solid #000;
+  border-radius: 100px;
+  text-transform: Uppercase;
 }
 
 .hidden {
