@@ -73,7 +73,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     letter.remove()
     console.log("go get a job!")
     if (strikeCountInc === 6) {
-        alert("YOU LOOSE")
+        alert("YOU LOSE")
       }
     
   }
