@@ -9,8 +9,10 @@ let wordOfTheGame = ""
 let newWord = []
 let emptyWrd = document.querySelector(".emptyWrd") 
 let strikeCount = document.querySelector(".strikeCount")
-let strikeCountInc = 0
+let strikeCountInc = 6
+let keyBoard = document.querySelector(".keyBoard")
 
+strikeCount.innerHTML = "6 guesses remaining"
 // listener for submit event
 // taking the word from input and returning it as an array of srtings stored in the variable wordArray 
 formBtn.addEventListener("submit", (e) => {
@@ -20,7 +22,8 @@ formBtn.addEventListener("submit", (e) => {
     console.log(word)
     wordArray = word.toLowerCase().split("")
     formBtn.reset()
-    creatingBlank()
+   creatingBlank()
+  formBtn.remove()
 })
 
  // created a function for refrencing the length of the input word 
@@ -67,12 +70,13 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     
     // created variable 
   } else if (!wordArray.includes(letter.innerHTML)) {
-    strikeCountInc++
+    strikeCountInc--
     console.log(strikeCountInc)
-    strikeCount.innerHTML = strikeCountInc
+    strikeCount.innerHTML = strikeCountInc + " guesses remaining"
     letter.remove()
     console.log("go get a job!")
-    if (strikeCountInc === 6) {
+    if (strikeCountInc === 0) {
+    keyBoard.remove()
         alert("YOU LOSE")
       }
     
@@ -81,7 +85,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
   if (newWord.join() === wordArray.join()) {
     window.alert("Yeah your smart ....")
   }
-}))
+},true))
 
 
 

@@ -8,22 +8,21 @@
   <title>Word Guessing Game</title>
 </head>
 <body>
+  <div class="mainContainer">
     <header>
       <h1>Guess Work</h1>
     </header>
 
     <h2 class="emptyWrd"> </h2>
 
-    <form id="form" class="wordIn">
-      <input type="text" class="inputText" id="inTxt" placeholder="Choose Word" name="word"/>
-      <input type="submit" value="Enter" class="enterBtn"/>
-    </form>
-
       <div class="wordHold">
         <p id="wordTxt" class="wordTxt">  </p>
+        <br>
+        <h4 class="strikeCount"></h4>
       </div>
 
       <main class="container">
+        <div class="keyBoard">
         <div class="top-row row">
           <div class="letter" data-letter="q">q</div>
           <div class="letter" data-letter="w">w</div>
@@ -56,16 +55,21 @@
           <div class="letter" data-letter="n">n</div>
           <div class="letter" data-letter="m">m</div>
         </div>
-  
 
+      </div>
     <br>
     <br>
    
     <footer>
-      <h4 class="strikeCount"></h4>
+      <form id="form" class="wordIn">
+        <input type="text" class="inputText" id="inTxt" placeholder="Choose Word" name="word"/>
+        <input type="submit" value="Enter" class="enterBtn"/>
+      </form>
+      
+      
     </footer>
 
-
+  </div>
 
   <script src="./script.js"></script>
 </body>
