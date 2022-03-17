@@ -8,6 +8,9 @@ let letters = document.querySelectorAll(".letter")
 let wordOfTheGame = "" 
 let newWord = []
 let emptyWrd = document.querySelector(".emptyWrd") 
+let strikeCount = document.querySelector(".strikeCount")
+let strikeCountInc = 0
+
 // listener for submit event
 // taking the word from input and returning it as an array of srtings stored in the variable wordArray 
 formBtn.addEventListener("submit", (e) => {
@@ -34,10 +37,12 @@ function creatingBlank() {
   // console.log(newWord)
   console.log(wordOfTheGame.length)
 }
-
+// strikeCount = 0
+// console.log(strikeCount)
 //listening for click event on letters 
 letters.forEach(letter => letter.addEventListener("click", (e) => {
   e.preventDefault() 
+  
   if (wordArray.includes(letter.innerHTML)) {
     function find(letter, wordArray) {
       results = [];
@@ -54,14 +59,28 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     // replacing at those indexes with the corresponding letter 
     results.forEach(index => newWord.splice(index, 1, letter.innerHTML))
     console.log(newWord)
+    console.log(wordArray)
     // using join to concatenate the items in newWrd array into emptyWrd
     emptyWrd.innerHTML = newWord.join("")
     //removing selected letter
     letter.remove()
+    
+    // created variable 
   } else if (!wordArray.includes(letter.innerHTML)) {
-  console.log("go get a job!")
+    strikeCountInc++
+    console.log(strikeCountInc)
+    strikeCount.innerHTML = strikeCountInc
+    letter.remove()
+    console.log("go get a job!")
+    if (strikeCountInc === 6) {
+        alert("YOU LOOSE")
+      }
+    
   }
-  // console.log(wordArray.includes(letter.innerHTML ))
+  console.log(newWord, wordArray)
+  if (newWord.join() === wordArray.join()) {
+    window.alert("Yeah your smart ....")
+  }
 }))
 
 
