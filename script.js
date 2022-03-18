@@ -12,18 +12,23 @@ let strikeCount = document.querySelector(".strikeCount")
 let strikeCountInc = 6
 let keyBoard = document.querySelector(".keyBoard")
 
+keyBoard.classList.add("hidden")
+strikeCount.classList.add("hidden")
+
 strikeCount.innerHTML = "6 guesses remaining"
 // listener for submit event
-// taking the word from input and returning it as an array of srtings stored in the variable wordArray 
+// taking the word from input and returning it as an array of strings stored in the variable wordArray 
 formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
+  keyBoard.classList.remove("hidden")
+  strikeCount.classList.remove("hidden")
     const data = Object.fromEntries(new FormData(e.target).entries());
     let { word } = data
     console.log(word)
     wordArray = word.toLowerCase().split("")
     formBtn.reset()
-   creatingBlank()
-  formBtn.remove()
+    creatingBlank()
+    formBtn.classList.add("hidden")
 })
 
  // created a function for refrencing the length of the input word 
@@ -33,15 +38,14 @@ function creatingBlank() {
   for (let i = 0; i < wordArray.length; i++) {
   wordOfTheGame += "-" 
   }
-  //emptywrd refrencing class in header and assigning it the value from function 
+  // emptywrd refrencing class in header and assigning it the value from function 
   // this was done to represent the amount of characters in the word thats selected
   emptyWrd.innerHTML = wordOfTheGame
   newWord = wordOfTheGame.split("")
   // console.log(newWord)
   console.log(wordOfTheGame.length)
 }
-// strikeCount = 0
-// console.log(strikeCount)
+
 //listening for click event on letters 
 letters.forEach(letter => letter.addEventListener("click", (e) => {
   e.preventDefault() 
@@ -66,7 +70,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     // using join to concatenate the items in newWrd array into emptyWrd
     emptyWrd.innerHTML = newWord.join("")
     //removing selected letter
-    letter.remove()
+    letter.classList.add("hidden")
     
     // created variable 
   } else if (!wordArray.includes(letter.innerHTML)) {
@@ -75,19 +79,24 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     strikeCount.innerHTML = strikeCountInc + " guesses remaining"
     letter.remove()
     console.log("go get a job!")
-    if (strikeCountInc === 0) {
-    keyBoard.remove()
+    if (strikeCountInc === 3) {
+      // 
+      // alert("hint: its a number")
+    }
+    else if (strikeCountInc === 0) {
+    keyBoard.classList.add("hidden")
         alert("YOU LOSE")
       }
     
   }
   console.log(newWord, wordArray)
   if (newWord.join() === wordArray.join()) {
-    window.alert("Yeah your smart ....")
+    keyBoard.classList.add("hidden")
+    window.alert("Yeah you're smart ....")
   }
-},true))
+}))
 
-
+// 2 settimeouts with hidden
 
 
 // find all the indices where the letters exsist
