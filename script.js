@@ -12,7 +12,8 @@ let strikeCount = document.querySelector(".strikeCount")
 let strikeCountInc = 6
 let keyBoard = document.querySelector(".keyBoard")
 let randomBtn = document.querySelector(".randomBtn")
-
+let reveal = document.querySelector(".reveal")
+let randomWord = []
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
 
@@ -29,7 +30,7 @@ strikeCount.classList.add("hidden")
 // asyn await function to grab data from word api
 let getWord = async () => {
   let response = await axios.get("https://random-word-api.herokuapp.com/word");
-  let randomWord = response.data[0];
+  randomWord = response.data[0];
   wordArray = randomWord.toLowerCase().split("")
   keyBoard.classList.remove("hidden")
   strikeCount.classList.remove("hidden")
@@ -65,13 +66,14 @@ formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
   keyBoard.classList.remove("hidden")
   strikeCount.classList.remove("hidden")
-    
+  randomBtn.classList.add("hidden")  
   const data = Object.fromEntries(new FormData(e.target).entries());
   let { word } = data
     wordArray = word.toLowerCase().split("")
     formBtn.reset()
     creatingBlank()
-    formBtn.classList.add("hidden")
+  formBtn.classList.add("hidden")
+  console.log(word)
 })
 
  // created a function for refrencing the length of the input word 
@@ -129,8 +131,10 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
       // alert("hint: its a number")
     }
     else if (strikeCountInc === 0) {
-    keyBoard.classList.add("hidden")
-        alert("YOU LOSE")
+      keyBoard.classList.add("hidden")
+      alert("YOU LOSE")
+      reveal.innerHTML = randomWord
+      reveal.innerHTML = wordArray.join("")
       }
     
   }
