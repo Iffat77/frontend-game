@@ -1,1 +1,4 @@
 # frontend-game
+
+wordArray = randoms
+

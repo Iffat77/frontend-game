@@ -12,7 +12,6 @@ let strikeCount = document.querySelector(".strikeCount")
 let strikeCountInc = 6
 let keyBoard = document.querySelector(".keyBoard")
 let randomBtn = document.querySelector(".randomBtn")
-let randoms = []
 
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
@@ -31,11 +30,28 @@ strikeCount.classList.add("hidden")
 let getWord = async () => {
   let response = await axios.get("https://random-word-api.herokuapp.com/word");
   let randomWord = response.data[0];
-  randoms = randomWord.split("")
+  wordArray = randomWord.toLowerCase().split("")
+  keyBoard.classList.remove("hidden")
+  strikeCount.classList.remove("hidden")
+  formBtn.classList.add("hidden")
+  randomBtn.classList.add("hidden")
   creatingBlank()
 
-  console.log(randoms)
+  console.log(wordArray)
 }
+
+// function creatingBlank2() {                     
+//   console.log(randoms.length)
+//   for (let i = 0; i < randoms.length; i++) {
+//   wordOfTheGame += "-" 
+//   } 
+//   emptyWrd.innerHTML = wordOfTheGame
+//   newWord = wordOfTheGame.split("")
+  
+//   console.log(wordOfTheGame.length)
+
+// }
+
 // calling async function on click event for randomBtn
 
 randomBtn.addEventListener("click", getWord)
@@ -44,6 +60,7 @@ randomBtn.addEventListener("click", getWord)
 strikeCount.innerHTML = "6 guesses remaining"
 // listener for submit event
 // taking the word from input and returning it as an array of strings stored in the variable wordArray 
+
 formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
   keyBoard.classList.remove("hidden")
@@ -64,7 +81,6 @@ function creatingBlank() {
   for (let i = 0; i < wordArray.length; i++) {
   wordOfTheGame += "-" 
   }
-
   // emptywrd refrencing class in header and assigning it the value from function 
   // this was done to represent the amount of characters in the word thats selected
   emptyWrd.innerHTML = wordOfTheGame
@@ -74,7 +90,7 @@ function creatingBlank() {
 
 
 }
-
+//<----------------------------------------------------------------------------->
 //listening for click event on letters 
 letters.forEach(letter => letter.addEventListener("click", (e) => {
   e.preventDefault() 
