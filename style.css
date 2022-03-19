@@ -14,7 +14,8 @@ body {
   head
   body
   footer;
-
+  justify-items: center;
+  align-items: center;
 }
 
 #form {
@@ -55,4 +56,8 @@ header {
 
 .hidden {
   display: none;
+}
+.randomBtn {
+  text-align: center;
+  justify-content: center;
 }

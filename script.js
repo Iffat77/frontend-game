@@ -11,9 +11,35 @@ let emptyWrd = document.querySelector(".emptyWrd")
 let strikeCount = document.querySelector(".strikeCount")
 let strikeCountInc = 6
 let keyBoard = document.querySelector(".keyBoard")
+let randomBtn = document.querySelector(".randomBtn")
+let randoms = []
 
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
+
+
+
+
+// fetch("https://random-word-api.herokuapp.com/word")
+//   .then(response => response.json())
+//   .then(data => {
+//     renderResults(data)
+//   })
+
+
+// asyn await function to grab data from word api
+let getWord = async () => {
+  let response = await axios.get("https://random-word-api.herokuapp.com/word");
+  let randomWord = response.data[0];
+  randoms = randomWord.split("")
+  creatingBlank()
+
+  console.log(randoms)
+}
+// calling async function on click event for randomBtn
+
+randomBtn.addEventListener("click", getWord)
+
 
 strikeCount.innerHTML = "6 guesses remaining"
 // listener for submit event
@@ -22,9 +48,9 @@ formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
   keyBoard.classList.remove("hidden")
   strikeCount.classList.remove("hidden")
-    const data = Object.fromEntries(new FormData(e.target).entries());
-    let { word } = data
-    console.log(word)
+    
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  let { word } = data
     wordArray = word.toLowerCase().split("")
     formBtn.reset()
     creatingBlank()
@@ -38,12 +64,15 @@ function creatingBlank() {
   for (let i = 0; i < wordArray.length; i++) {
   wordOfTheGame += "-" 
   }
+
   // emptywrd refrencing class in header and assigning it the value from function 
   // this was done to represent the amount of characters in the word thats selected
   emptyWrd.innerHTML = wordOfTheGame
   newWord = wordOfTheGame.split("")
   // console.log(newWord)
   console.log(wordOfTheGame.length)
+
+
 }
 
 //listening for click event on letters 

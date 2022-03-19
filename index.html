@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
   <title>Word Guessing Game</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
       </div>
 
       <main class="container">
-        <div class="keyBoard">
+        <div class="keyBoard hidden">
         <div class="top-row row">
           <div class="letter" data-letter="q">q</div>
           <div class="letter" data-letter="w">w</div>
@@ -65,12 +65,13 @@
         <input type="text" class="inputText" id="inTxt" placeholder="Choose Word" name="word"/>
         <input type="submit" value="Enter" class="enterBtn"/>
       </form>
-      
+      <br>
+      <button type="button" class="randomBtn" value="randomBtn">Random Word</button>
       
     </footer>
 
   </div>
-
-  <script src="./script.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
