@@ -1,6 +1,4 @@
-body {
- /* height: 100vh;  */
-  
+body {  
    display: grid;
   height: 100vh;
   width: 100%;
@@ -10,8 +8,6 @@ body {
   body;
   justify-items: center;
   align-items: center; 
-
-  /* background-color: #080f0f; */
 }
 .mainContainer{
  display: flex;

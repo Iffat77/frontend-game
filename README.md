@@ -6,7 +6,7 @@
 
 # Project Overview
 
-I created a variation of hangman called "Guess Work", one player has the option to enter a word which will be guessed by the second player. There is on on screen guess counter which stars at 6 and begins to decrement after incorrect guesses.
+- I created a variation of hangman called "Guess Work", one player has the option to enter a word which will be guessed by the second player. There is on on screen guess counter which stars at 6 and begins to decrement after incorrect guesses.
 If a player runs out of guesses they loose the game, if they can guess the word before the counter reaches 0 they win.
 
 ## Thought Process
