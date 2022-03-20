@@ -32,15 +32,16 @@
     
     <h2 class="gameResult"> </h2>
 
+    
 
       <div class="wordHold">
         <p id="wordTxt" class="wordTxt">  </p>
-        
+        <form id="form" class="wordIn">
+        <button type="submit" class="reset">Reset</button>
+        </form>
         <h4 class="strikeCount"></h4>
       </div>
 
-     
-      
       <main class="container">
         <div class="keyBoard hidden">
         <div class="top-row row">
@@ -75,33 +76,16 @@
           <div class="letter" data-letter="n">n</div>
           <div class="letter" data-letter="m">m</div>
         </div>
-
-      </div>
-  
-
-
-    <!-- The Modal -->
-    <div id="modal" class="modal">
-    
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p class="modalText"></p>
+      
       </div>
     
     </div>
     <footer>
-      <!-- <form id="form" class="wordIn">
-        <input type="text" class="inputText" id="inTxt" placeholder="Choose Word" name="word"/>
-        <input type="submit" value="Enter" class="enterBtn"/>
-      </form>
-    
-      <br>
-      <button type="submit" class="randomBtn" value="randomBtn">Random Word</button> -->
-      <br>
       <h2 class="reveal"> </h2>
-    </footer>
 
+
+    </footer>
+   
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="script.js"></script>

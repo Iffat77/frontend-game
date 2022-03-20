@@ -1,3 +1,4 @@
+
 let formBtn = document.querySelector("#form")
 let inputText = document.querySelector(".inputText")
 let wordArray = []
@@ -13,19 +14,13 @@ let randomBtn = document.querySelector(".randomBtn")
 let reveal = document.querySelector(".reveal")
 let randomWord = []
 let gameResult = document.querySelector(".gameResult")
-// let modal = document.querySelector(".modal")
-// let close = document.querySelector(".close")
+let resetBtn = document.querySelector(".reset")
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
+resetBtn.classList.add("hidden")
 
 
-
-function triggerModal() {
-  modal.style.display = "block"
-}
-
-
-
+resetBtn.addEventListener("submit", (e) => { })
 
 // asyn await function to grab data from word api
 let getWord = async () => {
@@ -89,7 +84,11 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     emptyWrd.innerHTML = newWord.join("")
     //removing selected letter
     letter.classList.add("hidden")
-    
+   
+    resetBtn.addEventListener("click", function () {
+      document.body.style.backgroundImage.remove("hidden")
+    })
+
     // created variable 
   } else if (!wordArray.includes(letter.innerHTML)) {
     strikeCountInc--
@@ -101,6 +100,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     else if (strikeCountInc === 0) {
       keyBoard.classList.add("hidden")
       gameResult.innerHTML = "You Lost!"
+      resetBtn.classList.remove("hidden")
       reveal.innerHTML = "The word is " + randomWord
       reveal.innerHTML = "The word is " + wordArray.join("")
       strikeCount.classList.add("hidden")
@@ -109,6 +109,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
   }
   if (newWord.join() === wordArray.join()) {
     keyBoard.classList.add("hidden")
+    resetBtn.classList.remove("hidden")
     gameResult.innerHTML = "You Win!"
     strikeCount.classList.add("hidden")
   }
