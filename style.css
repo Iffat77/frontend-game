@@ -1,19 +1,23 @@
 body {
+  display: grid;
   height: 100vh;
   width: 100%;
-  background-color: white;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas: 
+  head
+  body;
+  justify-items: center;
+  align-items: center; 
+   background-color: #f4f1de;
+  /* background-color: #080f0f; */
 }
 .mainContainer{
-  display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: 
-  
-  head
-  body
-  footer;
-  justify-items: center;
-  align-items: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ height: 100%;
+  width: 100%;
 }
 
 #form {
@@ -23,7 +27,9 @@ body {
 .title {
   font-size: 4rem;
   font-family: 'Bungee Shade', cursive;
-  color: #fc4445;
+  color: #e07a5f;
+  margin-top: 5rem;
+  margin-bottom: 0;
 }
 
 header {
@@ -36,7 +42,7 @@ header {
   font-size: 3rem;
   font-family: 'Exo', sans-serif;
   margin-top: 2.2em;
-  color: #fc4445;
+  color: #81B29A;
 }
 
 .strikeCount {
@@ -45,7 +51,7 @@ header {
    font-size: 1.5rem;
    font-weight: bold;
    margin:10px;
-   color: #fc4445;
+   color: #E07A5F;
 }
 
 .container {
@@ -63,17 +69,17 @@ header {
   border: transparent;
   border-bottom: 1px solid grey;
   border-left: 1px solid grey;
-  color: #fc4445;
+  color: #e07a5f;
   border-radius: 100px;
   text-transform: Uppercase;
   font-family: 'Saira Condensed', sans-serif;
   font-size: 1.2rem;
 }
 .letter:not([disabled]):focus {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 .letter:not([disabled]):hover {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .hidden {
@@ -90,16 +96,16 @@ header {
   border: 0;
   border-bottom: 1px solid grey;
   border-radius: .5rem;
-  color: #fc4445;
+  color: #e07a5f;
   transition: border-color 0.2s
 } ::placeholder{
-  color:#fc4445;
+  color:#e07a5f;
 }
 .inputText:not([disabled]):focus {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 .inputText:not([disabled]):hover {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .randomBtn {
@@ -111,18 +117,18 @@ header {
   margin-top: 20px;
   padding: .8rem;
   border: 1px solid grey;
-  color: #fc4445;
+  color: #e07a5f;
   border-radius: 8px;
   background-color: transparent;
   
 
 }
 .randomBtn:not([disabled]):focus {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .randomBtn:not([disabled]):hover {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .enterBtn {
@@ -132,29 +138,29 @@ header {
   font-family: 'Exo', sans-serif;
   font-size: 1rem;
   background: transparent;
-  color: #fc4445;
+  color: #e07a5f;
   border: 1px solid grey;
 
 }
 .enterBtn:not([disabled]):focus {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .enterBtn:not([disabled]):hover {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .reveal{
     font-family: 'Exo', sans-serif;
     font-size: 1.5rem;
-    color: #fc4445;
+    color: #81B29A;
     margin-bottom: 3rem;
 }
 
 .gameResult {
   font-family: 'Exo', sans-serif;
   font-size: 3rem;
-  color: #fc4445;
+  color: #3D405B;
   margin: 0;
 }
 
@@ -171,13 +177,13 @@ footer{
   font-family: 'Exo', sans-serif;
   font-size: 1rem;
   background: transparent;
-  color: #fc4445;
+  color: #e07a5f;
   border: 1px solid grey;
 }
 .reset:not([disabled]):focus {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
 
 .reset:not([disabled]):hover {
-  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #fc4445, .125rem .125rem 1rem #fc4445;
+  box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
