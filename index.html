@@ -21,22 +21,25 @@
 
     <h2 class="emptyWrd"> </h2>
 
+    <h4 class="strikeCount"></h4>
+
     <form id="form" class="wordIn">
       <input type="text" class="inputText" id="inTxt" placeholder="Enter Word" name="word"/>
       <input type="submit" value="Start Game" class="enterBtn"/>
       <br>
       <button type="submit" class="randomBtn" value="randomBtn">Random Word</button>
     </form>
-   
+    
+    <h2 class="gameResult"> </h2>
 
 
       <div class="wordHold">
         <p id="wordTxt" class="wordTxt">  </p>
-        <br>
+        
         <h4 class="strikeCount"></h4>
       </div>
 
-
+     
       
       <main class="container">
         <div class="keyBoard hidden">
@@ -74,9 +77,19 @@
         </div>
 
       </div>
-    <br>
-    <br>
-   
+  
+
+
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modalText"></p>
+      </div>
+    
+    </div>
     <footer>
       <!-- <form id="form" class="wordIn">
         <input type="text" class="inputText" id="inTxt" placeholder="Choose Word" name="word"/>

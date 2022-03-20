@@ -12,8 +12,20 @@ let keyBoard = document.querySelector(".keyBoard")
 let randomBtn = document.querySelector(".randomBtn")
 let reveal = document.querySelector(".reveal")
 let randomWord = []
+let gameResult = document.querySelector(".gameResult")
+// let modal = document.querySelector(".modal")
+// let close = document.querySelector(".close")
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
+
+
+
+function triggerModal() {
+  modal.style.display = "block"
+}
+
+
+
 
 // asyn await function to grab data from word api
 let getWord = async () => {
@@ -88,14 +100,17 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     }
     else if (strikeCountInc === 0) {
       keyBoard.classList.add("hidden")
-      alert("YOU LOSE")
+      gameResult.innerHTML = "You Lost!"
       reveal.innerHTML = "The word is " + randomWord
       reveal.innerHTML = "The word is " + wordArray.join("")
+      strikeCount.classList.add("hidden")
       }
     
   }
   if (newWord.join() === wordArray.join()) {
     keyBoard.classList.add("hidden")
-    window.alert("Yeah you're smart ....")
+    gameResult.innerHTML = "You Win!"
+    strikeCount.classList.add("hidden")
   }
 }))
+
