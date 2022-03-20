@@ -15,9 +15,13 @@ let reveal = document.querySelector(".reveal")
 let randomWord = []
 let gameResult = document.querySelector(".gameResult")
 let resetBtn = document.querySelector(".reset")
+let howTo = document.querySelector(".howTo")
 keyBoard.classList.add("hidden")
 strikeCount.classList.add("hidden")
 resetBtn.classList.add("hidden")
+
+
+howTo.innerHTML = "Enter a word and hit start game to begin, or choose random word"
 
 
 resetBtn.addEventListener("submit", (e) => { })
@@ -41,6 +45,7 @@ strikeCount.innerHTML = "6 guesses remaining"
 
 formBtn.addEventListener("submit", (e) => {
   e.preventDefault()
+  howTo.classList.add("hidden")
   keyBoard.classList.remove("hidden")
   strikeCount.classList.remove("hidden")
   randomBtn.classList.add("hidden")  

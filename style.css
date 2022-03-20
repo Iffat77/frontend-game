@@ -1,5 +1,7 @@
 body {
-  display: grid;
+ /* height: 100vh;  */
+  
+   display: grid;
   height: 100vh;
   width: 100%;
   grid-template-rows: 1fr 2fr;
@@ -8,7 +10,7 @@ body {
   body;
   justify-items: center;
   align-items: center; 
-   background-color: #f4f1de;
+
   /* background-color: #080f0f; */
 }
 .mainContainer{
@@ -22,13 +24,14 @@ body {
 
 #form {
  text-align: center;
+ margin-top: 0px;
 }
 
 .title {
   font-size: 4rem;
   font-family: 'Bungee Shade', cursive;
   color: #e07a5f;
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 0;
 }
 
@@ -187,3 +190,11 @@ footer{
 .reset:not([disabled]):hover {
   box-shadow: 0 0 .25rem transparent, -.125rem -.125rem 1rem #f2cc8f, .125rem .125rem 1rem #f2cc8f;
 }
+
+.howTo {
+  font-family: 'Exo', sans-serif;
+  font-size: 1.2rem;
+  padding-top: 2rem;
+  color: #E07A5F;
+}
+
