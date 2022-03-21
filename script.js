@@ -56,7 +56,7 @@ formBtn.addEventListener("submit", (e) => {
     creatingBlank()
   formBtn.classList.add("hidden")
 })
- // created a function for refrencing the length of the input word 
+ // created a function to find the length of the input word 
  // and adding dashes corresponding to that length.
 function creatingBlank() {                     
   for (let i = 0; i < wordArray.length; i++) {
@@ -90,10 +90,6 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     //removing selected letter
     letter.classList.add("hidden")
    
-    resetBtn.addEventListener("click", function () {
-      document.body.style.backgroundImage.remove("hidden")
-    })
-
     // created variable 
   } else if (!wordArray.includes(letter.innerHTML)) {
     strikeCountInc--
