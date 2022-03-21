@@ -26,7 +26,7 @@ howTo.innerHTML = "Enter a word and hit start game to begin, or choose random wo
 
 resetBtn.addEventListener("submit", (e) => { })
 
-// asyn await function to grab data from word api
+// asyn function to grab data from word api
 let getWord = async () => {
   let response = await axios.get("https://random-word-api.herokuapp.com/word");
   randomWord = response.data[0];
@@ -57,7 +57,7 @@ formBtn.addEventListener("submit", (e) => {
   formBtn.classList.add("hidden")
 })
  // created a function to find the length of the input word 
- // and adding dashes corresponding to that length.
+ // adding dashes corresponding to that length.
 function creatingBlank() {                     
   for (let i = 0; i < wordArray.length; i++) {
   wordOfTheGame += "-" 
@@ -85,7 +85,7 @@ letters.forEach(letter => letter.addEventListener("click", (e) => {
     // iterating through results to know where to go
     // replacing at those indexes with the corresponding letter 
     results.forEach(index => newWord.splice(index, 1, letter.innerHTML))
-    // using join to concatenate the items in newWrd array into emptyWrd
+    // using join to add the items in newWrd array and setting that qequal to emptyWrd
     emptyWrd.innerHTML = newWord.join("")
     //removing selected letter
     letter.classList.add("hidden")
